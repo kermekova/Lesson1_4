@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/registrationFragment">
 
     <fragment
         android:id="@+id/mainFragment"
@@ -12,7 +12,9 @@
         tools:layout="@layout/fragment_main" >
         <action
             android:id="@+id/action_mainFragment_to_secondFragment"
-            app:destination="@id/secondFragment" />
+            app:destination="@id/secondFragment"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
@@ -28,5 +30,21 @@
         android:id="@+id/detailFragment"
         android:name="com.geeks.lesson1_4.ui.fragment.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail">
+        <argument
+            android:name="User"
+            app:argType="com.geeks.lesson1_4.ui.data.model.User" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.geeks.lesson1_4.ui.data.model.RegistrationFragment"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_registration">
+
+        <action
+            android:id="@+id/action_registrationFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+    </fragment>
 </navigation>

@@ -29,7 +29,7 @@ class MainFragment : Fragment() {
         binding.txtMain.setOnClickListener {
             findNavController().navigate(
                 MainFragmentDirections.actionMainFragmentToSecondFragment(
-                    name = "Hello World!!!"
+                    "Hello World!!!"
                 )
             )
         }
